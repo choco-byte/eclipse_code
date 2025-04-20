@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:eclipse_code/all_movies.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,32 +8,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
-      // ✅ Bottom Navigation Bar
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        selectedItemColor: Color(0xFF7B1113),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.confirmation_number),
-            label: "Tickets",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-        ],
-      ),
-
-      // ✅ Body scrollable + safe + proper padding
       body: SafeArea(
         child: Column(
           children: [
-            // 🔍 Search Bar & Icon
             Container(
               padding: const EdgeInsets.all(10),
               color: Color(0xFF7B1113),
@@ -46,7 +24,7 @@ class HomeScreen extends StatelessWidget {
                         hintText: "Search in Eclipse Cinema",
                         prefixIcon: Icon(Icons.search),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
                         ),
                         contentPadding: EdgeInsets.symmetric(horizontal: 10),
                       ),
@@ -58,7 +36,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // ✅ Content yang bisa discroll
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(10),
@@ -78,40 +55,43 @@ class HomeScreen extends StatelessWidget {
 
                     const SizedBox(height: 20),
 
-                    // NOW SHOWING
-                    _buildSectionHeader("Now Showing"),
+                    
+                    _buildSectionHeader("Now Showing", context),
                     const SizedBox(height: 10),
                     SizedBox(
                       height: 220,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: [
-                          _buildMovieItem("assets/nezha.jpg", "Ne Zha 2"),
+                          _buildMovieItem("assets/lilo.jpg", "Lilo"),
                           _buildMovieItem("assets/dune.jpg", "Dune"),
-                          _buildMovieItem("assets/maleficent.jpeg", "Maleficent 2"),
+                          _buildMovieItem("assets/maleficent2.jpg", "Maleficent 2"),
                           _buildMovieItem("assets/deadpool.jpg", "Deadpool & Wolverine"),
+                          _buildMovieItem("assets/nezha2.jpg", "Ne Zha 2"),
                         ],
                       ),
                     ),
 
                     const SizedBox(height: 20),
 
-                    // COMING SOON
-                    _buildSectionHeader("Coming Soon"),
+                    
+                    _buildSectionHeader("Coming Soon", context),
                     const SizedBox(height: 10),
                     SizedBox(
                       height: 220,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: [
-                          _buildMovieItem("assets/nezha.jpg", "Scream VII"),
-                          _buildMovieItem("assets/nezha.jpg", "Karate Kid"),
-                          _buildMovieItem("assets/nezha.jpg", "Dragon"),
+                          _buildMovieItem("assets/scream7.jpg", "Scream VII"),
+                          _buildMovieItem("assets/kk.jpg", "Karate Kid"),
+                          _buildMovieItem("assets/httyd.jpg", "How To Train Your Dragon"),
+                          _buildMovieItem("assets/superman.jpg", "Superman"),
+                          _buildMovieItem("assets/Smurfs 2025.jpg", "Smurfs"),
                         ],
                       ),
                     ),
 
-                    const SizedBox(height: 30), // spacing before end
+                    const SizedBox(height: 30), 
                   ],
                 ),
               ),
@@ -151,16 +131,22 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSectionHeader(String title) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style:
-              const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        Text(
+  Widget _buildSectionHeader(String title, BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(
+        title,
+        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      ),
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => MovieTabsPage()), 
+          );
+        },
+        child: Text(
           "See All",
           style: TextStyle(
             fontSize: 14,
@@ -168,7 +154,8 @@ class HomeScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
+}
 }

@@ -28,6 +28,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_svg: ^2.0.7
+  iconify_flutter: ^0.0.5
   flutter:
     sdk: flutter
 
@@ -59,11 +61,33 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/avatar.jpg
     - assets/banner.png
-    - assets/nezha.jpg
-    - assets/dune.jpg
-    - assets/maleficent.jpeg
+    - assets/chair.svg
     - assets/deadpool.jpg
+    - assets/dumbo.jpg
+    - assets/dune.jpg
+    - assets/ELIO (2025).jpg
+    - assets/filmroll.svg
+    - assets/homeicon.svg
+    - assets/httyd.jpg
+    - assets/jw.jpg
+    - assets/kk.jpg
+    - assets/lilo.jpg
+    - assets/logo_eclipse.svg
+    - assets/maleficent2.jpg
+    - assets/mario.jpg
+    - assets/nezha2.jpg
+    - assets/person.svg
+    - assets/profileicon.svg
+    - assets/scream.jpg
+    - assets/scream7.jpg
+    - assets/Smurfs 2025.jpg
+    - assets/Super-Mario (2022).jpg
+    - assets/superman.jpg
+    - assets/The Lion King.jpg
+    - assets/ticketicon.svg
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
