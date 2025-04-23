@@ -92,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                               );
                             },
                             child: const Text(
-                              'Forgot password',
+                              'Forget password',
                               style: TextStyle(color: Color(0xFF641717)),
                             ),
                           ),
