@@ -27,7 +27,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     WelcomePageOne(),
     WelcomePageTwo(),
     WelcomePageThree(),
-    LoginScreen()
 
     //tambah class yang ada di halaman login.dart disini,cth: LoginPage(),
   ];
