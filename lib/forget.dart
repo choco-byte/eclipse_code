@@ -9,7 +9,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: ForgetScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ForgetScreen(),
+    );
   }
 }
 
@@ -18,7 +21,6 @@ class ForgetScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF641717),
-      
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -43,31 +45,19 @@ class ForgetScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Enter your registered phone number. We’ll send a verification code.',
+                    "Enter the email associated with your account and we'll send an email with instructions to reset your password.",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 14, color: Colors.black54),
                   ),
                   const SizedBox(height: 20),
                   const Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Phone Number', style: TextStyle(fontSize: 16)),
+                    child: Text('Email', style: TextStyle(fontSize: 16)),
                   ),
                   const TextField(
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      hintText: '08xxxxxxxxxx',
-                      border: UnderlineInputBorder(),
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text('New Password', style: TextStyle(fontSize: 16)),
-                  ),
-                  const TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Enter new password',
+                      hintText: 'xxxxx@gmail.com',
                       border: UnderlineInputBorder(),
                     ),
                   ),
@@ -89,16 +79,19 @@ class ForgetScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context); // kembali ke halaman login
-                    },
-                    child: const Text(
-                      'Back to Login',
-                      style: TextStyle(
-                        color: Color(0xFF641717),
-                        fontSize: 14,
-                        
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context); // kembali ke halaman login
+                      },
+                      child: const Text(
+                        'Back to Login',
+                        style: TextStyle(
+                          color: Color(0xFF641717),
+                          fontSize: 14,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
                   ),

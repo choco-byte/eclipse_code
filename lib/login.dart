@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:eclipse_code/forget.dart';
 import 'package:eclipse_code/navigator.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:eclipse_code/forget.dart';
 import 'package:eclipse_code/register.dart';
 
 void main() {
@@ -16,71 +17,102 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool _staySignedIn = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF641717), // Warna merah maroon sesuai gambar
-
+      backgroundColor: const Color(0xFF7B1113),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: SingleChildScrollView(
-            // Membuat tampilan scrollable
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
-                  'Welcome to Eclipse',
-                  style: TextStyle(
-                    fontSize: 35, // Menyesuaikan ukuran font
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 15),
                 Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(16), // Menyesuaikan padding
+                  padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(15),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Login',
-                        style: TextStyle(
-                          fontSize: 24, // Menyesuaikan ukuran font
-                          fontWeight: FontWeight.bold,
+                      const SizedBox(height: 0),
+                      Center(
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 8),
+                          width: 150,
+                          height: 150,
+                          padding: const EdgeInsets.all(8),
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                          ),
+                          child: ClipOval(
+                            child: SvgPicture.asset(
+                              'assets/logo_eclipse.svg',
+                              fit: BoxFit.contain,
+                            ),
+                          ),
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const Text(
+                        'LOGIN',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 25),
                       const Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'Phone Number',
-                          style: TextStyle(fontSize: 16),
+                          'Email',
+                          style: TextStyle(fontSize: 14),
                         ),
                       ),
                       const TextField(
-                        keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
-                          hintText: '08xxxxxxxxxx',
-                          border: UnderlineInputBorder(),
+                          prefixIcon: Icon(Icons.person),
+                          hintText: 'Enter email',
                         ),
                       ),
-
                       const SizedBox(height: 15),
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text('Password', style: TextStyle(fontSize: 14)),
+                      ),
+                      const TextField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.lock),
+                          hintText: 'Enter password',
+                        ),
+                      ),
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            'Password',
-                            style: TextStyle(fontSize: 16),
+                          Row(
+                            children: [
+                              Checkbox(
+                                value: _staySignedIn,
+                                onChanged: (value) {
+                                  setState(() {
+                                    _staySignedIn = value!;
+                                  });
+                                },
+                              ),
+                              const Text('Stay signed in'),
+                            ],
                           ),
                           TextButton(
                             onPressed: () {
@@ -92,68 +124,78 @@ class LoginScreen extends StatelessWidget {
                               );
                             },
                             child: const Text(
-                              'Forget password',
-                              style: TextStyle(color: Color(0xFF641717)),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          hintText: 'Enter your password',
-                          border: UnderlineInputBorder(),
-                        ),
-                      ),
-                      const SizedBox(height: 15),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const Text('New to Eclipse? '),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => RegisterScreen(),
-                                ),
-                              );
-                            },
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                            ),
-                            child: const Text(
-                              'Create an account!',
-                              style: TextStyle(color: Color(0xFF641717)),
+                              'Forgot Password?',
+                              style: TextStyle(fontSize: 12),
                             ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 10),
-                      Center(
+                      SizedBox(
+                        width: double.infinity,
+                        height: 45,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF641717),
+                            backgroundColor: const Color(0xFF641717),
+                            foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25),
+                              borderRadius: BorderRadius.circular(8),
+                              side: const BorderSide(
+                                color: Color(0xFF641717),
+                              ),
                             ),
-                            minimumSize: const Size(double.infinity, 50),
                           ),
                           onPressed: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
-                              MaterialPageRoute(builder: (context) => Nav()),
+                              MaterialPageRoute(
+                                builder: (context) => Nav(), // <-- Pindah ke login.dart
+                              ),
                             );
                           },
                           child: const Text(
-                            'Login',
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            'LOGIN',
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
                     ],
                   ),
                 ),
+                const SizedBox(height: 15),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Not registered yet? ",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RegisterScreen(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          "Create your account",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
               ],
             ),
           ),

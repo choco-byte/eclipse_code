@@ -46,16 +46,13 @@ class HomeScreen extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     const Text("Book your favorite movie here"),
                     const SizedBox(height: 10),
-
                     // Banner
                     ClipRRect(
                       borderRadius: BorderRadius.circular(15),
                       child: Image.asset("assets/banner.png"),
                     ),
 
-                    const SizedBox(height: 20),
-
-                    
+                    const SizedBox(height: 20),                   
                     _buildSectionHeader("Now Showing", context),
                     const SizedBox(height: 10),
                     SizedBox(
@@ -71,10 +68,9 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-
-                    const SizedBox(height: 20),
-
                     
+                    Divider(height: 1, color: Colors.grey[300]),
+                    const SizedBox(height: 20),
                     _buildSectionHeader("Coming Soon", context),
                     const SizedBox(height: 10),
                     SizedBox(
