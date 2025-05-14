@@ -1,4 +1,3 @@
-import 'package:eclipse_code/logo_screen.dart';
 import 'package:eclipse_code/navigator.dart';
 import 'package:flutter/material.dart';
 
