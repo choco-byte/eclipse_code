@@ -1,7 +1,7 @@
 import 'package:eclipse_code/login.dart';
+import 'package:eclipse_code/navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:eclipse_code/home_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -121,7 +121,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
+                          builder: (context) => Nav(),
                         ),
                       );
                     },
