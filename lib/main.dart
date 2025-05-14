@@ -1,4 +1,5 @@
 import 'package:eclipse_code/logo_screen.dart';
+import 'package:eclipse_code/navigator.dart';
 import 'package:flutter/material.dart';
 
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-      home: LogoScreen(),
+      home: Nav(),
     );
   }
 }
