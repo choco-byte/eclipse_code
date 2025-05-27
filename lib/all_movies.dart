@@ -80,9 +80,10 @@ class NowShowingMovies extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                MovieCard1(image: 'assets/lilo.jpg', 
-                title: 'Lilo & Stitch', 
-                agerate: 'G', showStars: true, rating: 5.0,),
+                MovieCard1(image: 'assets/nezha2.jpg', 
+                title: 'Ne Zha', 
+                agerate: 'PG', showStars: true, rating: 5.0,),
+               
                 MovieCard1(image: 'assets/dune.jpg', 
                 title: 'Dune', 
                 agerate: 'PG-13', showStars: true, rating: 4.0,),
@@ -128,9 +129,9 @@ class NowShowingMovies extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                MovieCard1(image: 'assets/nezha2.jpg', 
-                title: 'Ne Zha', 
-                agerate: 'PG', showStars: true, rating: 5.0,),
+                MovieCard1(image: 'assets/lilo.jpg', 
+                title: 'Lilo & Stitch', 
+                agerate: 'G', showStars: true, rating: 5.0,),
               ],
             ),
           ],

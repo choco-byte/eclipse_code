@@ -219,7 +219,7 @@ class WelcomePageOne extends StatelessWidget {
               right: horizontalPadding,
               top: 0, 
               bottom:
-                  screenHeight * 0.17, 
+                  screenHeight * 0.30, 
             ),
             child: Align(
               alignment: Alignment.bottomCenter, 
@@ -353,7 +353,7 @@ class WelcomePageTwo extends StatelessWidget {
             child: SvgPicture.asset(
               'assets/chair.svg',
               width: 500,
-              height: 700,
+              height: 600,
               fit:
                   BoxFit
                       .contain, 
@@ -394,7 +394,7 @@ class WelcomePageThree extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(
               horizontal: horizontalPadding,
-            ).copyWith(top: screenHeight * 0.08),
+            ).copyWith(top: screenHeight * 0.02),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
