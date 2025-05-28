@@ -2,28 +2,12 @@ import 'package:eclipse_code/seat_order/order_summary.dart';
 import 'package:flutter/material.dart';
 
 
-void main() {
-  runApp(CinemaSeatApp());
-}
-
-class CinemaSeatApp extends StatelessWidget {
-  const CinemaSeatApp({super.key});
-
+class CinemaSeatApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SeatGridResponsive(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
+  _CinemaSeatAppState createState() => _CinemaSeatAppState();
 }
 
-class SeatGridResponsive extends StatefulWidget {
-  @override
-  _SeatGridResponsiveState createState() => _SeatGridResponsiveState();
-}
-
-class _SeatGridResponsiveState extends State<SeatGridResponsive> {
+class _CinemaSeatAppState extends State<CinemaSeatApp> {
   List<String> selectedSeats = [];
 
   final List<List<String>> leftSeats = [
@@ -112,6 +96,7 @@ class _SeatGridResponsiveState extends State<SeatGridResponsive> {
         title: Text("Select Seat", style: TextStyle(color: Colors.white, fontSize: screenWidth*0.05)),
         centerTitle: true,
         elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Column(
         children: [ Expanded(

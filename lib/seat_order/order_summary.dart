@@ -25,6 +25,13 @@ class OrderSummary extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Color(0xFF7B1113),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF7B1113),
+        title: Text("Order Summary", style: TextStyle(color: Colors.white, fontSize: screenWidth*0.05)),
+        centerTitle: true,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
       body: Center(
         child: Container(
           margin: EdgeInsets.all(screenWidth*0.05),

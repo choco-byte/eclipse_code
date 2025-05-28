@@ -1,3 +1,4 @@
+import 'package:eclipse_code/seat_order/seat_selection.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -28,6 +29,13 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Color(0xFF7B1113),
+        title: Text("Movie Details", style: TextStyle(color: Colors.white),),
+        centerTitle: true,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
       body: SafeArea(
         child: ListView(
           children: [
@@ -37,13 +45,11 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   'assets/nezha.png',
                   width: double.infinity,
                   height: 250,
-                  fit: BoxFit.cover, // Changed fit to cover for better image display
+                  fit:
+                      BoxFit
+                          .cover, // Changed fit to cover for better image display
                 ),
-                const Positioned(
-                  top: 20,
-                  left: 20,
-                  child: BackButton(color: Colors.white),
-                ),
+                
               ],
             ),
             Padding(
@@ -62,13 +68,12 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
                         InfoRow(label: 'Genre', value: 'Fantasy, Animation'),
-                        InfoRow(
-                            label: 'Duration', value: '2 hours 25 minutes'),
+                        InfoRow(label: 'Duration', value: '2 hours 25 minutes'),
                         InfoRow(label: 'Director', value: 'Jiaozi (Yang Yu)'),
                         InfoRow(label: 'Age Rating', value: 'SU'),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -87,7 +92,8 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                     child: Text(
                       'SYNOPSIS',
                       style: TextStyle(
-                        fontWeight: _showSynopsis ? FontWeight.bold : FontWeight.normal,
+                        fontWeight:
+                            _showSynopsis ? FontWeight.bold : FontWeight.normal,
                         fontSize: 16,
                         color: _showSynopsis ? Colors.black : Colors.grey,
                       ),
@@ -103,7 +109,10 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                     child: Text(
                       'SCHEDULE',
                       style: TextStyle(
-                        fontWeight: !_showSynopsis ? FontWeight.bold : FontWeight.normal,
+                        fontWeight:
+                            !_showSynopsis
+                                ? FontWeight.bold
+                                : FontWeight.normal,
                         fontSize: 16,
                         color: !_showSynopsis ? Colors.black : Colors.grey,
                       ),
@@ -134,10 +143,7 @@ class InfoRow extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 6.0),
       child: Row(
         children: [
-          Text(
-            '$label: ',
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
+          Text('$label: ', style: const TextStyle(fontWeight: FontWeight.bold)),
           Expanded(child: Text(value)),
         ],
       ),
@@ -164,18 +170,18 @@ class CastCard extends StatelessWidget {
       margin: const EdgeInsets.only(right: 16),
       child: Column(
         children: [
-          CircleAvatar(
-            backgroundImage: AssetImage(imagePath),
-            radius: 30,
-          ),
+          CircleAvatar(backgroundImage: AssetImage(imagePath), radius: 30),
           const SizedBox(height: 8),
-          Text(name,
-              textAlign: TextAlign.center,
-              style:
-                  const TextStyle(fontWeight: FontWeight.w600, fontSize: 12)),
-          Text(role,
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.grey, fontSize: 10)),
+          Text(
+            name,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+          ),
+          Text(
+            role,
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: Colors.grey, fontSize: 10),
+          ),
         ],
       ),
     );
@@ -212,7 +218,9 @@ class RatingSection extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.grey[300],
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 8),
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4),
                           ),
@@ -264,7 +272,7 @@ class RatingSection extends StatelessWidget {
               Text(
                 '5,645 People',
                 style: TextStyle(fontWeight: FontWeight.w500),
-              )
+              ),
             ],
           ),
         ],
@@ -353,7 +361,7 @@ class ScheduleContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Studio VIP',
+                'Studio 1',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
               const SizedBox(height: 8),
@@ -370,14 +378,25 @@ class ScheduleContent extends StatelessWidget {
                       spacing: 8.0,
                       runSpacing: 8.0,
                       children: [
-                        _buildTimeSlotButton('12.00'),
-                        _buildTimeSlotButton('15.00'),
-                        _buildTimeSlotButton('18.50'),
+                        _buildTimeSlotButton('12.00', () {
+                          print('Selected time: 12.00');
+                        }),
+                        _buildTimeSlotButton('15.00', () {
+                          print('Selected time: 15.00');
+                        }),
+                        _buildTimeSlotButton('19.15', () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CinemaSeatApp(),
+                            ),
+                          );
+                        }),
                       ],
                     ),
                   ),
                   const Text(
-                    '75.000',
+                    '50.000',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ],
@@ -392,7 +411,7 @@ class ScheduleContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Studio A',
+                'Studio 2',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
               const SizedBox(height: 8),
@@ -409,9 +428,15 @@ class ScheduleContent extends StatelessWidget {
                       spacing: 8.0,
                       runSpacing: 8.0,
                       children: [
-                        _buildTimeSlotButton('12.00'),
-                        _buildTimeSlotButton('15.00'),
-                        _buildTimeSlotButton('19.00'),
+                        _buildTimeSlotButton('12.00', () {
+                          print('Selected time: 12.00');
+                        }),
+                        _buildTimeSlotButton('15.00', () {
+                          print('Selected time: 15.00');
+                        }),
+                        _buildTimeSlotButton('19.15', () {
+                          print('Selected time: 19.15');
+                        }),
                       ],
                     ),
                   ),
@@ -462,21 +487,14 @@ class ScheduleContent extends StatelessWidget {
     );
   }
 
-  Widget _buildTimeSlotButton(String time) {
+  Widget _buildTimeSlotButton(String time, VoidCallback onPressed) {
     return OutlinedButton(
-      onPressed: () {
-        print('Selected time: $time');
-      },
+      onPressed: onPressed,
       style: OutlinedButton.styleFrom(
         side: const BorderSide(color: Colors.grey),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
-      child: Text(
-        time,
-        style: const TextStyle(color: Colors.black),
-      ),
+      child: Text(time, style: const TextStyle(color: Colors.black)),
     );
   }
 }

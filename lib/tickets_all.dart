@@ -194,8 +194,7 @@ class TicketCard extends StatelessWidget {
                     alignment: Alignment.bottomRight,
                     child: Padding(
                       padding: const EdgeInsets.only(
-                        left: 2,
-                        right: 30,
+                        left: 2,                       
                         top: 36,
                       ), // tambahkan right agar makin ke kanan
                       child: Transform.rotate(
