@@ -56,9 +56,9 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     const Text(
                       "Hello, User!",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
-                    const Text("Book your favorite movie here"),
+                    const Text("Book your favorite movie here", style: TextStyle(fontSize: 16)),
                     const SizedBox(height: 10),
                     // Banner
                     ClipRRect(
