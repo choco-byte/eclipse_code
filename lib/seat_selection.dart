@@ -1,4 +1,4 @@
-import 'package:eclipse_code/seat_order/order_summary.dart';
+import 'package:eclipse_code/order_summary.dart';
 import 'package:flutter/material.dart';
 
 
