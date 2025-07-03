@@ -1,4 +1,4 @@
-import 'package:eclipse_code/seat_order/seat_selection.dart';
+import 'package:eclipse_code/seat_selection.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());

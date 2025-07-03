@@ -1,4 +1,4 @@
-import 'package:eclipse_code/seat_order/seat_selection.dart';
+import 'package:eclipse_code/payment_success.dart';
 import 'package:flutter/material.dart';
 
 
@@ -187,7 +187,7 @@ class OrderSummary extends StatelessWidget {
                   backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(screenWidth*0.02)), 
                 ),
-                onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => CinemaSeatApp()));},
+                onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentSuccess(showSnackbar: true,)));},
                 child: Text('Checkout', style: TextStyle(
                   color: Color(0xFF7B1113),
                   fontSize: screenWidth*0.06
