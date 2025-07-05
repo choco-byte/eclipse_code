@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter_svg: ^2.0.7
   iconify_flutter: ^0.0.5
+  share_plus: ^7.2.1
+  flutter_speed_dial: ^7.0.0
   flutter:
     sdk: flutter
     
