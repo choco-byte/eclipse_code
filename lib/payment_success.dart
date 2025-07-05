@@ -1,8 +1,6 @@
 import 'package:eclipse_code/navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:eclipse_code/home_screen.dart';
-
 
 
 class PaymentSuccess extends StatelessWidget {
