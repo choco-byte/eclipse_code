@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       "view": "879"
     },
     {
-      "img": "avatar.jpg", // Ganti dengan gambar asli lainnya jika ada
+      "img": "avatar.jpg",
       "title": "Avatar: Fire And Ash First Look: Neytiri Prepares To Strike",
       "desc": "For the most part, Avatar: The Way Of Water was so titled for its focus on the oceans of Pandora – with Jake Sully, Neytiri, and their Na'vi children forced to flee the RDA and bed in with the aquamarine Metkayina clan. But the sequel could also have been named for the tears provoked by its final reel. The clash between Na'vi and man came with a major consequence: the death of Jake and Neytiri's firstborn son, Neteyam, tragically cut down on the cusp of adulthood. It's a loss that sent Neytiri into a fearsome rage against the RDA – and as we enter Avatar: Fire And Ash, that loss and “absolute devastation” is still fresh in the character's mind, says star Zoe Saldaña. \n\n“That pain is seamlessly followed up on,” she tells Empire in our latest Path To Pandora exclusive, running up to Fire And Ash's arrival. “And because it doesn't really have anywhere to go, and doesn't go away, rage can also come from it. [The Sullys] are going to be tested as a family.” You can see Neytiri in our world-exclusive first image from the film above, bow pulled taut, ready to strike – emblematic of her position in Fire And Ash. In short, Neytiri's going through it, her grief rippling through all her most important relationships. “Not only would everything that's happening compel her to question the bond she has with her husband,” Saldaña says, “but also her bond with herself, her people, her land, and the way the Na'vi are. She's going to question everything.”",
       "time": "18 hours ago",

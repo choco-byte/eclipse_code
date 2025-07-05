@@ -23,7 +23,7 @@ class MovieDetailPage extends StatefulWidget {
 }
 
 class _MovieDetailPageState extends State<MovieDetailPage> {
-  bool _showSynopsis = true; // State to toggle between synopsis and schedule
+  bool _showSynopsis = true; 
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   height: 250,
                   fit:
                       BoxFit
-                          .cover, // Changed fit to cover for better image display
+                          .cover, 
                 ),
                 
               ],

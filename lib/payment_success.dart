@@ -1,6 +1,8 @@
+import 'package:eclipse_code/navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:eclipse_code/home_screen.dart';
+
 
 
 class PaymentSuccess extends StatelessWidget {
@@ -72,7 +74,7 @@ class PaymentSuccess extends StatelessWidget {
           backgroundColor: Color(0xFF7B1113),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), 
         ),
-          onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));},
+          onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => Nav()));},
           child: Text('Continue', style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,

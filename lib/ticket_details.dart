@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:barcode_widget/barcode_widget.dart';
-
+import 'package:share_plus/share_plus.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class TicketDetailPage extends StatelessWidget {
   const TicketDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -19,7 +19,6 @@ class TicketDetailPage extends StatelessWidget {
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
       ),
-
       backgroundColor: const Color(0xFF7B1113),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -157,6 +156,50 @@ class TicketDetailPage extends StatelessWidget {
             ),
           ),
         ),
+      ),
+
+      floatingActionButton: SpeedDial(
+        animatedIcon: AnimatedIcons.menu_close,
+        backgroundColor: Colors.redAccent,
+        overlayColor: Colors.black,
+        overlayOpacity: 0.5,
+        spacing: 12,
+        spaceBetweenChildren: 8,
+        children: [
+          SpeedDialChild(
+            child: const Icon(Icons.share, color: Colors.deepPurple),
+            backgroundColor: Colors.white,
+            label: 'Share',
+            labelStyle: const TextStyle(color: Colors.deepPurple),
+            onTap: () {
+              Share.share(
+                '🎟 Ne Zha 2 Ticket Movie\n\n🗓 Date: 23 May 2025\n🕖 Time: 7:15 PM\n📍 Location: Eclipse Cinema\n💺 Seat: C9',
+                subject: 'Share Ticket Ne Zha 2',
+              );
+            },
+          ),
+          SpeedDialChild(
+            child: const Icon(Icons.access_time, color: Colors.deepPurple),
+            backgroundColor: Colors.white,
+            label: 'Reminder',
+            labelStyle: const TextStyle(color: Colors.deepPurple),
+            onTap: () async {
+              TimeOfDay? selectedTime = await showTimePicker(
+                context: context,
+                initialTime: TimeOfDay.now(),
+              );
+              if (selectedTime != null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'Reminder set at ${selectedTime.format(context)}',
+                    ),
+                  ),
+                );
+              }
+            },
+          ),
+        ],
       ),
     );
   }
