@@ -129,7 +129,7 @@ class OrderSummary extends StatelessWidget {
                             fontSize: screenWidth*0.037
                           ),),
                           GestureDetector(
-                            onTap: (){print('yooo');},
+                            onTap: (){print('halloooo');}, //ubah dari print('yooo') ke print('halloooo')
                             child: Row(
                               children: [
                                 Text('Select ', style: TextStyle(
