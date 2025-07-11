@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 
 
 class CinemaSeatApp extends StatefulWidget {
+  final String selectedTime;
+
+  const CinemaSeatApp({Key? key, required this.selectedTime}) : super(key: key);
+
   @override
   _CinemaSeatAppState createState() => _CinemaSeatAppState();
 }
@@ -237,7 +241,7 @@ class _CinemaSeatAppState extends State<CinemaSeatApp> {
                           SizedBox(height: 8),
                           SizedBox(
                             width: screenWidth * 0.15,
-                            child: Text('7.15 PM',
+                            child: Text(widget.selectedTime,
                               style: TextStyle(
                                 fontSize: screenWidth * 0.038,
                                 fontWeight: FontWeight.bold,
@@ -330,7 +334,7 @@ class _CinemaSeatAppState extends State<CinemaSeatApp> {
           backgroundColor: selectedSeats.isEmpty? Colors.grey : Color(0xFF7B1113),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), 
         ),
-          onPressed: selectedSeats.isEmpty? null : (){Navigator.push(context, MaterialPageRoute(builder: (context) => OrderSummary(seat: selectedSeats, price: seatPrice)));},
+          onPressed: selectedSeats.isEmpty? null : (){Navigator.push(context, MaterialPageRoute(builder: (context) => OrderSummary(seat: selectedSeats, price: seatPrice, time: widget.selectedTime,)));},
           child: Text('Pay Now', style: TextStyle(
             color: selectedSeats.isEmpty?  Colors.black : Colors.white,
             fontWeight: FontWeight.bold,
