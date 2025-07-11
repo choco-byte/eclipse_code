@@ -23,7 +23,7 @@ class MovieDetailPage extends StatefulWidget {
 }
 
 class _MovieDetailPageState extends State<MovieDetailPage> {
-  bool _showSynopsis = true; 
+  bool _showSynopsis = true; // State to toggle between synopsis and schedule
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   height: 250,
                   fit:
                       BoxFit
-                          .cover, 
+                          .cover, // Changed fit to cover for better image display
                 ),
                 
               ],
@@ -378,17 +378,41 @@ class ScheduleContent extends StatelessWidget {
                       spacing: 8.0,
                       runSpacing: 8.0,
                       children: [
+                        // _buildTimeSlotButton('12.00', () {
+                        //   print('Selected time: 12.00');
+                        // }),
+                        // _buildTimeSlotButton('15.00', () {
+                        //   print('Selected time: 15.00');
+                        // }),
+                        // _buildTimeSlotButton('19.15', () {
+                        //   Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //       builder: (context) => CinemaSeatApp(),
+                        //     ),
+                        //   );
+                        // }),
                         _buildTimeSlotButton('12.00', () {
-                          print('Selected time: 12.00');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CinemaSeatApp(selectedTime: '12.00'), // Kirim waktu yang dipilih
+                            ),
+                          );
                         }),
                         _buildTimeSlotButton('15.00', () {
-                          print('Selected time: 15.00');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CinemaSeatApp(selectedTime: '15.00'), // Kirim waktu yang dipilih
+                            ),
+                          );
                         }),
                         _buildTimeSlotButton('19.15', () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => CinemaSeatApp(),
+                              builder: (context) => CinemaSeatApp(selectedTime: '19.15'), // Kirim waktu yang dipilih
                             ),
                           );
                         }),
