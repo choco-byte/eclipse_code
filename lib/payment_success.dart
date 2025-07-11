@@ -95,5 +95,8 @@ class PaymentSuccess extends StatelessWidget {
               fontSize: screenWidth * 0.05,
             ),
           ),
-        ),),);}
+        ),
+      ),
+    );
+  }
 }
